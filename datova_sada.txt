@@ -1,0 +1,39 @@
+ZÁKLAD
+Průchozí:
+(4+2)*3+(1+0)
+Neprůchozí:
+2 + 2
+
+1. OPERACE FAKTORIÁL
+Průchozí:
+5!
+(3+1)!
+(2*2)!
+Neprůchozí:
+!5
+5 !
+
+2. HEXA A JEDNIČKOVÁ SOUSTAVA
+Průchozí:
+0xAA
+0XAA
+0xA+5
+o0000
+O00
+Neprůchozí:
+0x
+o
+
+3. SUMA
+Průchozí:
+sum(4*2,2)
+sum(2,0)
+3+sum(4,3)*2
+sum(2+2,5)!
+sum(7+2!,2!)!
+Neprůchozí:
+sum(1,)
+sum()
+sum(,1)
+sum
+sum(
