@@ -28,10 +28,10 @@ int process_pattern(int number, char *Message);
 \@     {sum_ops=process_pattern(sum_ops,"Factorial operator detected.");}
 \(     {br_left=process_pattern(br_left,"Opening bracket detected.");}
 \)     {br_right=process_pattern(br_right,"Closing bracket detected.");} 
-sum\(.+\,.+\)   {sum_ops=process_pattern(sum_ops,"Sum operator detected.");} 
+sum\(.+\,.+\)   {sum_ops=process_pattern(sum_ops,"Sum operator detected.");}
+0[Xx][0-9A-Z]+ {hexa_values=process_pattern(hexa_values,"Hexa number detected.");} 
 [0-9]+ {dec_values=process_pattern(dec_values,"Int number detected.");}
 [Oo]0+ {unit_values=process_pattern(unit_values,"Unit number detected.");}
-0[Xx][0-9A-Z]+ {hexa_values=process_pattern(hexa_values,"Hexa number detected.");}
 ^\n    {void_lines_done++;printf("Void line detected.\n");}
 \n     {lines_done++;printf("Line detected.\n");}
 .      {errors_detected=process_pattern(errors_detected,"An error detected.\n");}
