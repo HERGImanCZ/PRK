@@ -17,16 +17,16 @@ Line detected.
 Line detected.
 Line detected.
 0 of total errors detected in input file.
-13 of int numbers detected.
+32 of int numbers detected.
 2 of unit numbers detected.
 3 of hexa numbers detected.
 4 of comment lines canceled.
-6 of add operators detected.
+9 of add operators detected.
 7 of sum operators detected.
-5 of factorial operators detected.
-3 of multiplication operators detected.
+9 of factorial operators detected.
+5 of multiplication operators detected.
 4 of opening brackets detected.
-4 of closing brackets detected.
+11 of closing brackets detected.
 3 of void lines ignored.
 File processed sucessfully.
 Totally 15 of valid code lines in file processed.

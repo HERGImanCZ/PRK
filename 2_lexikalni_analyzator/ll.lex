@@ -7,6 +7,7 @@ int add_ops=0;
 int mpy_ops=0;
 int fact_ops=0;
 int left_bra=0;
+int comma = 0;
 int right_bra=0;
 int dec_values=0;
 int unit_values=0;
@@ -26,7 +27,8 @@ int process_pattern(int number, char *Message);
 \@     {fact_ops=process_pattern(fact_ops,"Factorial operator detected.");}
 \(     {left_bra=process_pattern(left_bra,"Opening bracket detected.");}
 \)     {right_bra=process_pattern(right_bra,"Closing bracket detected.");} 
-sum\(.+\,.+\)   {sum_ops=process_pattern(sum_ops,"Sum operator detected.");}
+sum\(   {sum_ops=process_pattern(sum_ops,"Sum operator detected.");}
+\,   {comma=process_pattern(comma,"Comma detected.");}
 0[Xx][0-9A-Z]+ {hexa_values=process_pattern(hexa_values,"Hexa number detected.");} 
 [0-9]+ {dec_values=process_pattern(dec_values,"Int number detected.");}
 [Oo]0+ {unit_values=process_pattern(unit_values,"Unit number detected.");}
