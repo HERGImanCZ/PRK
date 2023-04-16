@@ -38,7 +38,7 @@ void print_msg(char *msg);
 \@      {factorial=process_pattern(factorial,"Factorial operator detected.",PATT_FACTOR);
             return FACTOR;
         }
-sum\(   {sum_ops=process_pattern(sum_ops,"Sum operator detected.",PATT_SUM);
+"sum"\(   {sum_ops=process_pattern(sum_ops,"Sum operator detected.",PATT_SUM);
             return SUM;
         }
 \(      {leftbr=process_pattern(leftbr,"Opening bracket detected.",PATT_LEFT_BR);
@@ -50,13 +50,13 @@ sum\(   {sum_ops=process_pattern(sum_ops,"Sum operator detected.",PATT_SUM);
 \,      {comma=process_pattern(comma,"Comma detected.",PATT_COMMA);
             return COMMA;
         }
-0[Xx][0-9A-Z]+ {hexa_values=process_pattern(hexa_values,"Hexa number detected.",PATT_HEXA);
+"0"[Xx][0-9A-Z]+ {hexa_values=process_pattern(hexa_values,"Hexa number detected.",PATT_HEXA);
             return HEXA;
         } 
 [0-9]+  {integer_value=process_pattern(integer_value,"Int number detected.",PATT_INT);
             return INT;
         }
-[Oo]0+  {unit_values=process_pattern(unit_values,"Unit number detected.",PATT_UNIT);
+[Oo]"0"+  {unit_values=process_pattern(unit_values,"Unit number detected.",PATT_UNIT);
             return UNIT;
         }
 ^\n     {void_lines_done++;        
@@ -73,6 +73,9 @@ sum\(   {sum_ops=process_pattern(sum_ops,"Sum operator detected.",PATT_SUM);
 
 %%
 
+int yywrap(void) {
+return 1;
+}
 /*int main()
     {
         yylex();

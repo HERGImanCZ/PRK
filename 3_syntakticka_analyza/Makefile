@@ -14,7 +14,7 @@ INCFILES=$(wildcard $(INCDIR)/*.c)
 #LIBS = $(addprefix -l, $(LIBNAMES))
 
 BINDIR="./bin"
-TESTDIR="./test-files"
+TESTDIR="./testfiles"
 TEST_OK_FILE="test_ok.txt"
 
 .PHONY: parser test_ok test_errors subclean clean all

@@ -72,13 +72,13 @@ vyber1:
     LEFT_BR vyraz RIGHT_BR {printf("Rule10\n");} //Rule10
     | SUM vyraz COMMA vyraz RIGHT_BR {printf("Rule11\n");} //Rule11
     | INT {printf("Rule12\n");} //Rule12
-    | HEXA {printf("Rule12\n");} //Rule12
-    | UNIT {printf("Rule13\n");} //
+    | HEXA {printf("Rule13\n");} //Rule13
+    | UNIT {printf("Rule14\n");} //Rule14
     ;
 
 unarend:
-    FACTOR {printf("Rule14\n");} //Rule14
-    | {printf("Rule15\n");} //Rule15
+    FACTOR {printf("Rule15\n");} //Rule15
+    | {printf("Rule16\n");} //Rule16
     ;
 
 %%
