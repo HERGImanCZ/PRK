@@ -16,10 +16,11 @@ INCFILES=$(wildcard $(INCDIR)/*.c)
 BINDIR="./bin"
 TESTDIR="./testfiles"
 TEST_OK_FILE="test_ok.txt"
+TEST_ERRORS_FILE="test_errors.txt"
 
 .PHONY: parser test_ok test_errors subclean clean all
 
-all: clean parser test_ok test_errors
+all: parser test_ok test_errors
 	@if [ $(PRINT_OUTPUT) ]; then cat $(BINDIR)/$(TEST_OK_FILE).report; fi
 	@if [ $(PRINT_OUTPUT) ]; then cat $(BINDIR)/$(TEST_ERRORS_FILE).report; fi
 
@@ -40,6 +41,8 @@ parser:
 
 test_ok:
 	@./$(BINDIR)/$(PARSER_BIN) < $(TESTDIR)/$(TEST_OK_FILE) >$(BINDIR)/$(TEST_OK_FILE).report
+test_errors:
+	@./$(BINDIR)/$(PARSER_BIN) < $(TESTDIR)/$(TEST_ERRORS_FILE) >$(BINDIR)/$(TEST_ERRORS_FILE).report 2>&1 || true
 
 subclean:
 	@rm -rf lex.yy.c

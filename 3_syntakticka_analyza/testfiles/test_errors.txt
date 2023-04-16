@@ -1,0 +1,8 @@
+!5
+0x
+o
+sum(1,)
+sum()
+sum(,1)
+sum
+sum(
