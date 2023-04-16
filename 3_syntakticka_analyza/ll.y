@@ -42,8 +42,8 @@ extern int yylineno, yylval;
 
 %%
 HergiLang:
-    HergiLang vyraz /*LINE_END*/ { printf("Syntax OK, Rule1\n"); } //Rule1
-    | vyraz /*LINE_END*/ { printf("Syntax OK, Rule2\n");} //Rule2
+    HergiLang vyraz LINE_END { printf("Syntax OK, Rule1\n"); } //Rule1
+    | vyraz LINE_END { printf("Syntax OK, Rule2\n");} //Rule2
     ;
 
 vyraz:

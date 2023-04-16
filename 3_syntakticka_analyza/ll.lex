@@ -50,7 +50,7 @@ void print_msg(char *msg);
 \,      {comma=process_pattern(comma,"Comma detected.",PATT_COMMA);
             return COMMA;
         }
-"0"[Xx][0-9A-Z]+ {hexa_values=process_pattern(hexa_values,"Hexa number detected.",PATT_HEXA);
+"0"[Xx][0-9A-F]+ {hexa_values=process_pattern(hexa_values,"Hexa number detected.",PATT_HEXA);
             return HEXA;
         } 
 [0-9]+  {integer_value=process_pattern(integer_value,"Int number detected.",PATT_INT);
