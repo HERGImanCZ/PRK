@@ -42,7 +42,7 @@ parser:
 test_ok:
 	@./$(BINDIR)/$(PARSER_BIN) < $(TESTDIR)/$(TEST_OK_FILE) >$(BINDIR)/$(TEST_OK_FILE).report
 test_errors:
-    @echo "TODO"
+	@./$(BINDIR)/$(PARSER_BIN) < $(TESTDIR)/$(TEST_ERRORS_FILE) >$(BINDIR)/$(TEST_ERRORS_FILE).report
 
 subclean:
 	@rm -rf lex.yy.c
