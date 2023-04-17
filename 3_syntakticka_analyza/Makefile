@@ -42,7 +42,8 @@ parser:
 test_ok:
 	@./$(BINDIR)/$(PARSER_BIN) < $(TESTDIR)/$(TEST_OK_FILE) >$(BINDIR)/$(TEST_OK_FILE).report
 test_errors:
-	@./$(BINDIR)/$(PARSER_BIN) < $(TESTDIR)/$(TEST_ERRORS_FILE) >$(BINDIR)/$(TEST_ERRORS_FILE).report
+#	@./$(BINDIR)/$(PARSER_BIN) < $(TESTDIR)/$(TEST_ERRORS_FILE) >$(BINDIR)/$(TEST_ERRORS_FILE).report
+	@cat $(TESTDIR)/$(TEST_ERRORS_FILE) | while read line; do echo "$$line" | ./$(BINDIR)/$(PARSER_BIN) >> $(BINDIR)/$(TEST_ERRORS_FILE).report || echo "error: $$line" >> $(BINDIR)/$(TEST_ERRORS_FILE).report; done
 
 subclean:
 	@rm -rf lex.yy.c
