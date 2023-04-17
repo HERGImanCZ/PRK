@@ -6,3 +6,7 @@ sum()
 sum(,1)
 sum
 sum(
+sadsdasds
+1+*2
+()+2
+()2
