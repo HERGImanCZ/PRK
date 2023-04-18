@@ -655,7 +655,7 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,    14,    13,    15,     0,     0,     6,     9,
+       0,     0,     0,    13,    14,    15,     0,     0,     6,     9,
       17,     0,     0,     1,     0,     3,     0,     4,     0,     7,
       16,    10,     0,    11,     2,     6,     9,     0,     5,     8,
       12
@@ -1240,15 +1240,15 @@ yyreduce:
 #line 1241 "y.tab.c"
     break;
 
-  case 13: /* vyber1: INT  */
+  case 13: /* vyber1: HEXA  */
 #line 74 "ll.y"
-          {printf("Rule12\n");}
+           {printf("Rule12\n");}
 #line 1247 "y.tab.c"
     break;
 
-  case 14: /* vyber1: HEXA  */
+  case 14: /* vyber1: INT  */
 #line 75 "ll.y"
-           {printf("Rule13\n");}
+          {printf("Rule13\n");}
 #line 1253 "y.tab.c"
     break;
 

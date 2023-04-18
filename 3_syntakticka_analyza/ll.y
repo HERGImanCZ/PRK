@@ -71,8 +71,8 @@ vyber:
 vyber1:
     LEFT_BR vyraz RIGHT_BR {printf("Rule10\n");} //Rule10
     | SUM vyraz COMMA vyraz RIGHT_BR {printf("Rule11\n");} //Rule11
-    | INT {printf("Rule12\n");} //Rule12
-    | HEXA {printf("Rule13\n");} //Rule13
+    | HEXA {printf("Rule12\n");} //Rule12
+    | INT {printf("Rule13\n");} //Rule13
     | UNIT {printf("Rule14\n");} //Rule14
     ;
 
