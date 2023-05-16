@@ -172,10 +172,8 @@ int calc_sum(int x, int n){
 }
 
 int calc_fact(int x){
-    int res = 1;
-    int i;
-    for(i = 0; i<x; i++){
-        res *= i;
-    }
-    return res; 
+    if (x == 0)
+        return 1;
+    else
+        return x * calc_fact(x - 1);
 }

@@ -1,6 +1,5 @@
 #ZÁKLAD
 (4+2)*3+(1+0)
-(sum(o000,2)*0xA11!+(3+o0))*0
 
 #1. OPERACE FAKTORIÁL
 5!
@@ -22,3 +21,11 @@ sum(2+2,5)!
 sum(7+2!,2!)!
 sum(2+2,5*3)
 sum(5!,4!)
+
+#4. DALŠÍ KOMBINACE
+sum(0xAA,2)
+0x12!
+(sum(o000,2)*0xA!+(3+o0))*5
+o00*0X2
+sum(2,2)!
+
