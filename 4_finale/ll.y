@@ -56,11 +56,11 @@ int calc_fact(int x);
 HergiLang:
     HergiLang vyraz LINE_END { 
         printf("Syntax OK, Rule1\n");
-        printf("Result: %d\n", $2);
+        printf("Result: %d\n\n", $2);
     } //Rule1
     | vyraz LINE_END { 
         printf("Syntax OK, Rule2\n");
-        printf("Result: %d\n", $1);
+        printf("Result: %d\n\n", $1);
     } //Rule2
     ;
 
