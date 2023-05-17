@@ -99,10 +99,12 @@ extern int yylineno;
 
 int calc_sum(int x, int n);
 int calc_fact(int x);
+void dec_to_hex(int number);
+void dec_to_unit(int number);
 //extern int yylineno, yylval;
 
 
-#line 106 "y.tab.c"
+#line 108 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -181,11 +183,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 36 "ll.y"
+#line 38 "ll.y"
 
     int integer;
 
-#line 189 "y.tab.c"
+#line 191 "y.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -614,8 +616,8 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    57,    57,    61,    68,    75,    79,    86,    93,    97,
-     105,   118,   122,   126,   130,   134,   142,   146
+       0,    59,    59,    66,    76,    83,    87,    94,   101,   105,
+     113,   126,   130,   134,   138,   142,   150,   154
 };
 #endif
 
@@ -1189,79 +1191,85 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* HergiLang: HergiLang vyraz LINE_END  */
-#line 57 "ll.y"
+#line 59 "ll.y"
                              { 
         printf("Syntax OK, Rule1\n");
-        printf("Result: %d\n", (yyvsp[-1].integer));
+        printf("Klasický tvar: %d\n", (yyvsp[-1].integer));
+        dec_to_hex((yyvsp[-1].integer));
+        dec_to_unit((yyvsp[-1].integer));
+        printf("\n");
     }
-#line 1198 "y.tab.c"
+#line 1203 "y.tab.c"
     break;
 
   case 3: /* HergiLang: vyraz LINE_END  */
-#line 61 "ll.y"
+#line 66 "ll.y"
                      { 
         printf("Syntax OK, Rule2\n");
-        printf("Result: %d\n", (yyvsp[-1].integer));
+        printf("Klasický tvar: %d\n", (yyvsp[-1].integer));
+        dec_to_hex((yyvsp[-1].integer));
+        dec_to_unit((yyvsp[-1].integer));
+        printf("\n");
     }
-#line 1207 "y.tab.c"
+#line 1215 "y.tab.c"
     break;
 
   case 4: /* vyraz: term vyraz1  */
-#line 68 "ll.y"
+#line 76 "ll.y"
                 {
         printf("Rule3\n");
         (yyval.integer) = (yyvsp[-1].integer) + (yyvsp[0].integer);
     }
-#line 1216 "y.tab.c"
+#line 1224 "y.tab.c"
     break;
 
   case 5: /* vyraz1: PLUS term vyraz1  */
-#line 75 "ll.y"
+#line 83 "ll.y"
                      {
         printf("Rule4\n");
         (yyval.integer) = (yyvsp[-1].integer) + (yyvsp[0].integer);
     }
-#line 1225 "y.tab.c"
+#line 1233 "y.tab.c"
     break;
 
   case 6: /* vyraz1: %empty  */
-#line 79 "ll.y"
+#line 87 "ll.y"
       {
         printf("Rule5\n");
         (yyval.integer) = 0;
     }
-#line 1234 "y.tab.c"
+#line 1242 "y.tab.c"
     break;
 
   case 7: /* term: vyber term1  */
-#line 86 "ll.y"
+#line 94 "ll.y"
                 {
         printf("Rule6\n");
         (yyval.integer) = (yyvsp[-1].integer) * (yyvsp[0].integer);
     }
-#line 1243 "y.tab.c"
+#line 1251 "y.tab.c"
     break;
 
   case 8: /* term1: MULTI vyber term1  */
-#line 93 "ll.y"
+#line 101 "ll.y"
                       {
         printf("Rule7\n");
         (yyval.integer) = (yyvsp[-1].integer) * (yyvsp[0].integer);
     }
-#line 1252 "y.tab.c"
+#line 1260 "y.tab.c"
     break;
 
   case 9: /* term1: %empty  */
-#line 97 "ll.y"
+#line 105 "ll.y"
       {
         printf("Rule8\n");
         (yyval.integer) = 1;
     }
-#line 1261 "y.tab.c"
+#line 1269 "y.tab.c"
     break;
 
   case 10: /* vyber: vyber1 unarend  */
-#line 105 "ll.y"
+#line 113 "ll.y"
                    {
         printf("Rule9\n");
         if((yyvsp[0].integer) == 1){
@@ -1271,74 +1279,74 @@ yyreduce:
             (yyval.integer) = (yyvsp[-1].integer);
         }
     }
-#line 1275 "y.tab.c"
+#line 1283 "y.tab.c"
     break;
 
   case 11: /* vyber1: LEFT_BR vyraz RIGHT_BR  */
-#line 118 "ll.y"
+#line 126 "ll.y"
                            {
         printf("Rule10\n");
         (yyval.integer) = (yyvsp[-1].integer);
     }
-#line 1284 "y.tab.c"
+#line 1292 "y.tab.c"
     break;
 
   case 12: /* vyber1: SUM vyraz COMMA vyraz RIGHT_BR  */
-#line 122 "ll.y"
+#line 130 "ll.y"
                                      {
         printf("Rule11\n");
         (yyval.integer) = calc_sum((yyvsp[-3].integer), (yyvsp[-1].integer));
     }
-#line 1293 "y.tab.c"
+#line 1301 "y.tab.c"
     break;
 
   case 13: /* vyber1: HEXA  */
-#line 126 "ll.y"
+#line 134 "ll.y"
            {
         printf("Rule12\n");
         (yyval.integer) = (yyvsp[0].integer);
     }
-#line 1302 "y.tab.c"
+#line 1310 "y.tab.c"
     break;
 
   case 14: /* vyber1: INT  */
-#line 130 "ll.y"
+#line 138 "ll.y"
           {
         printf("Rule13\n");
         (yyval.integer) = (yyvsp[0].integer);
     }
-#line 1311 "y.tab.c"
+#line 1319 "y.tab.c"
     break;
 
   case 15: /* vyber1: UNIT  */
-#line 134 "ll.y"
+#line 142 "ll.y"
            {
         printf("Rule14\n");
         (yyval.integer) = (yyvsp[0].integer);
     }
-#line 1320 "y.tab.c"
+#line 1328 "y.tab.c"
     break;
 
   case 16: /* unarend: FACTOR  */
-#line 142 "ll.y"
+#line 150 "ll.y"
            {
         printf("Rule15\n");
         (yyval.integer)=1;
     }
-#line 1329 "y.tab.c"
+#line 1337 "y.tab.c"
     break;
 
   case 17: /* unarend: %empty  */
-#line 146 "ll.y"
+#line 154 "ll.y"
       {
         printf("Rule16\n");
         (yyval.integer)=0;
     }
-#line 1338 "y.tab.c"
+#line 1346 "y.tab.c"
     break;
 
 
-#line 1342 "y.tab.c"
+#line 1350 "y.tab.c"
 
       default: break;
     }
@@ -1531,7 +1539,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 152 "ll.y"
+#line 160 "ll.y"
 
 
 void yyerror(const char* s) {   
@@ -1559,4 +1567,40 @@ int calc_fact(int x){
         return 1;
     else
         return x * calc_fact(x - 1);
+}
+
+void dec_to_hex(int number) {
+    char hex[100];
+    int index = 0;
+
+    if (number == 0) {
+        printf("Hexadecimální tvar: 0x0\n");
+        return;
+    }
+
+    while (number != 0) {
+        int remainder = number % 16;
+
+        if (remainder < 10) {
+            hex[index] = remainder + '0';
+        } else {
+            hex[index] = remainder - 10 + 'A';
+        }
+
+        number /= 16;
+        index++;
+    }
+
+    printf("Hexadecimální tvar: 0x");
+    for (int i = index - 1; i >= 0; i--) {
+        printf("%c", hex[i]);
+    }
+    printf("\n");
+}
+
+void dec_to_unit(int number) {
+    printf("Jednotkový tvar: o");
+    for(int i = 0; i < number; i++)
+        printf("0");
+    printf("\n");
 }

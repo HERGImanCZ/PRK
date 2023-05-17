@@ -29,6 +29,8 @@ extern int yylineno;
 
 int calc_sum(int x, int n);
 int calc_fact(int x);
+void dec_to_hex(int number);
+void dec_to_unit(int number);
 //extern int yylineno, yylval;
 
 %}
@@ -56,11 +58,17 @@ int calc_fact(int x);
 HergiLang:
     HergiLang vyraz LINE_END { 
         printf("Syntax OK, Rule1\n");
-        printf("Result: %d\n\n", $2);
+        printf("Klasický tvar: %d\n", $2);
+        dec_to_hex($2);
+        dec_to_unit($2);
+        printf("\n");
     } //Rule1
     | vyraz LINE_END { 
         printf("Syntax OK, Rule2\n");
-        printf("Result: %d\n\n", $1);
+        printf("Klasický tvar: %d\n", $1);
+        dec_to_hex($1);
+        dec_to_unit($1);
+        printf("\n");
     } //Rule2
     ;
 
@@ -176,4 +184,40 @@ int calc_fact(int x){
         return 1;
     else
         return x * calc_fact(x - 1);
+}
+
+void dec_to_hex(int number) {
+    char hex[100];
+    int index = 0;
+
+    if (number == 0) {
+        printf("Hexadecimální tvar: 0x0\n");
+        return;
+    }
+
+    while (number != 0) {
+        int remainder = number % 16;
+
+        if (remainder < 10) {
+            hex[index] = remainder + '0';
+        } else {
+            hex[index] = remainder - 10 + 'A';
+        }
+
+        number /= 16;
+        index++;
+    }
+
+    printf("Hexadecimální tvar: 0x");
+    for (int i = index - 1; i >= 0; i--) {
+        printf("%c", hex[i]);
+    }
+    printf("\n");
+}
+
+void dec_to_unit(int number) {
+    printf("Jednotkový tvar: o");
+    for(int i = 0; i < number; i++)
+        printf("0");
+    printf("\n");
 }

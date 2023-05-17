@@ -7,7 +7,7 @@
 (2*2)!
 
 #2. HEXA A JEDNIČKOVÁ SOUSTAVA
-0xAA
+0xA
 0XAA
 0xA+5
 o0000
@@ -17,15 +17,13 @@ O00
 sum(4*2,2)
 sum(2,0)
 3+sum(4,3)*2
-sum(2+2,5)!
-sum(7+2!,2!)!
 sum(2+2,5*3)
-sum(5!,4!)
+sum(3!,3!)
 
 #4. DALŠÍ KOMBINACE
-sum(0xAA,2)
-0x12!
-(sum(o000,2)*0xA!+(3+o0))*5
+sum(0xA,2)
+0x6!
+(sum(o000,2)*0x5!+(3+o0))*5
 o00*0X2
 sum(2,2)!
 

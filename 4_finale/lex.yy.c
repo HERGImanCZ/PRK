@@ -1924,7 +1924,7 @@ void print_msg(char *msg){
 void print_error(int ERRNO){
     #ifdef VERBOSE
         char *message = Err_Messages[ERRNO];
-        printf("%s - %d - %s\n",ErrMsgMain,ERR_PATTERN,message);
+        printf("%s - %d - %s\n\n",ErrMsgMain,ERR_PATTERN,message);
     #endif
 }
 
